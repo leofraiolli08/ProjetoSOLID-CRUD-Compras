@@ -1,0 +1,29 @@
+# Visual Studio, .NET e artefatos de build
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+TestResults/
+**/TestResults/
+
+# Bancos de dados locais e arquivos transitórios SQLite
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Configurações particulares, credenciais e segredos
+.env
+.env.*
+!.env.example
+*.pfx
+*.snk
+secrets.json
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

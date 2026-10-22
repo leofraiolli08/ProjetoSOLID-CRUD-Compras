@@ -1,0 +1,22 @@
+name: Validar projeto .NET 8
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+      - name: Preparar SDK .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restaurar dependências
+        run: dotnet restore ProjetoSOLID.sln
+      - name: Compilar
+        run: dotnet build ProjetoSOLID.sln --configuration Release --no-restore
+      - name: Executar testes
+        run: dotnet test ProjetoSOLID.sln --configuration Release --no-build --verbosity normal
